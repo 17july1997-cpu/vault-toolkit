@@ -1,7 +1,7 @@
 {
   "name": "vault-toolkit",
   "description": "Three-skill toolkit for building, syncing, and linting a Karpathy-pattern wiki vault. Bundles vault-restructure (intake + routing + manifest), vault-sync (bootstrap or session ingestion + crystallization), and vault-lint (three-tier health checks). The three skills share a manifest schema and vault-index hash chain. Installing any one standalone produces errors; this plugin installs all three with verified compatibility.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Anmol Shekar"
   },

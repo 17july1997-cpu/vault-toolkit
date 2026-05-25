@@ -75,9 +75,9 @@ Version compatibility is captured in `vault-toolkit.lock.json` at the plugin roo
 
 | Skill | Commit | Manifest schema |
 |-------|--------|------------------|
-| vault-restructure | [39f6047](https://github.com/17july1997-cpu/vault-restructure/commit/39f6047) | 1.1 |
-| vault-sync | [e3989a9](https://github.com/17july1997-cpu/vault-sync/commit/e3989a9) | 1.1 |
-| vault-lint | [42e9f34](https://github.com/17july1997-cpu/vault-lint/commit/42e9f34) | consumes 1.1 (not pinned) |
+| vault-restructure | [743ae5e](https://github.com/17july1997-cpu/vault-restructure/commit/743ae5e) | 1.1 |
+| vault-sync | [d58acae](https://github.com/17july1997-cpu/vault-sync/commit/d58acae) | 1.1 |
+| vault-lint | [c7b3d63](https://github.com/17july1997-cpu/vault-lint/commit/c7b3d63) | consumes 1.1 (not pinned) |
 
 To upgrade the plugin to newer SHAs:
 1. Pull the latest commit from each individual repo
