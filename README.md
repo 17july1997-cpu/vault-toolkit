@@ -71,13 +71,15 @@ For LLM-judgment semantic checks (contradictions, near-duplicates):
 
 ## Bundled versions
 
-Version compatibility is captured in `vault-toolkit.lock.json` at the plugin root. The table below is generated from that lockfile and reflects exactly what ships in this plugin release.
+Version compatibility is captured in `vault-toolkit.lock.json` at the plugin root. The table below is auto-regenerated from that lockfile by `scripts/gen-lockfile.sh` (do NOT hand-edit between the markers).
 
+<!-- LOCKFILE-TABLE-START -->
 | Skill | Commit | Manifest schema |
 |-------|--------|------------------|
-| vault-restructure | [743ae5e](https://github.com/17july1997-cpu/vault-restructure/commit/743ae5e) | 1.1 |
-| vault-sync | [d58acae](https://github.com/17july1997-cpu/vault-sync/commit/d58acae) | 1.1 |
-| vault-lint | [c7b3d63](https://github.com/17july1997-cpu/vault-lint/commit/c7b3d63) | consumes 1.1 (not pinned) |
+| vault-restructure | [00033d6](https://github.com/17july1997-cpu/vault-restructure/commit/00033d6) | 1.1 |
+| vault-sync | [4253727](https://github.com/17july1997-cpu/vault-sync/commit/4253727) | 1.1 |
+| vault-lint | [9304393](https://github.com/17july1997-cpu/vault-lint/commit/9304393) | 1.1 |
+<!-- LOCKFILE-TABLE-END -->
 
 To upgrade the plugin to newer SHAs:
 1. Pull the latest commit from each individual repo

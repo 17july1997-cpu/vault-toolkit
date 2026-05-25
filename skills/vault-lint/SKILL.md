@@ -9,6 +9,8 @@ Verify the vault. Three tiers of checks. Report-only with ONE scoped write excep
 
 vault-lint catches what vault-sync and vault-restructure leave behind. Lint is the verify phase, not the build phase.
 
+**Consumes manifest schema_version: "1.1".** vault-lint reads `wiki/restructure-manifest.md` and `wiki/vault-index.md` at the schema written by vault-restructure. If the manifest's schema_version is anything other than 1.1, lint behavior is undefined. Bump this declared version when the manifest schema bumps.
+
 ---
 
 ## Step 0: Detect Mode and Scope

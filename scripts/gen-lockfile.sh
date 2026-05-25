@@ -49,3 +49,32 @@ jq -n \
 
 echo "Lockfile written: $PLUGIN_ROOT/vault-toolkit.lock.json"
 cat "$PLUGIN_ROOT/vault-toolkit.lock.json"
+
+# Codex R2 P1-4: auto-regen the README compatibility table block from the lockfile.
+# Block is delimited by HTML comments so this script can safely overwrite it.
+README="$PLUGIN_ROOT/README.md"
+if [[ -f "$README" ]] && grep -q "<!-- LOCKFILE-TABLE-START -->" "$README"; then
+  TABLE=$(jq -r '"| Skill | Commit | Manifest schema |\n|-------|--------|------------------|\n" + (.skills | map("| \(.skill) | [\(.commit[0:7])](https://github.com/17july1997-cpu/\(.skill)/commit/\(.commit[0:7])) | \(if .manifest_schema_version == "unspecified" then "unspecified (FAIL)" else .manifest_schema_version end) |") | join("\n"))' "$PLUGIN_ROOT/vault-toolkit.lock.json")
+  # Use python for the replacement (regex with content containing / and special chars is fragile in perl one-liners)
+  python3 - "$README" <<PYEOF
+import re, sys
+path = sys.argv[1]
+with open(path) as f:
+    body = f.read()
+table = """${TABLE}"""
+new_body = re.sub(
+    r"(<!-- LOCKFILE-TABLE-START -->).*?(<!-- LOCKFILE-TABLE-END -->)",
+    lambda m: m.group(1) + "\n" + table + "\n" + m.group(2),
+    body,
+    flags=re.DOTALL,
+)
+with open(path, "w") as f:
+    f.write(new_body)
+PYEOF
+  echo
+  echo "README compatibility table regenerated."
+else
+  echo
+  echo "WARN: README compatibility-table markers not found; table not auto-regenerated." >&2
+  echo "      Add <!-- LOCKFILE-TABLE-START --> and <!-- LOCKFILE-TABLE-END --> markers in README.md" >&2
+fi

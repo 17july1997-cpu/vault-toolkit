@@ -45,13 +45,15 @@ for skill in "${SKILLS[@]}"; do
 
   # Slash-command namespacing transform.
   # Under plugin install, the user types `/vault-toolkit:vault-sync` not `/vault-sync`.
-  # Rewrite ALL prose references to the namespaced form so the skill's own user-facing
-  # instructions match what the plugin user must actually type.
-  # NOTE: this transforms only the bundled copy. The individual-repo SKILL.md stays untouched
-  # (it's the standalone-install version where `/vault-sync` is correct).
-  # Uses perl for portable word-boundary support (macOS BSD sed lacks \b).
+  # Rewrite ONLY slash-command prose references (e.g. "run /vault-sync") to the namespaced form.
+  # MUST NOT rewrite filesystem paths (e.g. ~/.claude/skills/vault-sync/references/...) or
+  # sibling-prefixed names (e.g. /vault-sync-experimental).
+  # Codex R2 P0-2 caught the prior version corrupting a filesystem path.
+  # NOTE: transforms only the bundled copy. Individual-repo SKILL.md stays untouched.
   for s in "${SKILLS[@]}"; do
-    find "$DEST" -type f -name "*.md" -exec perl -i -pe "s|/\Q${s}\E\b|/${PLUGIN_NAME}:${s}|g" {} \;
+    # (?<![\w./]) — slash NOT preceded by word char, dot, or another slash (excludes path contexts)
+    # (?![-\w])  — name NOT followed by hyphen or word char (excludes sibling `vault-sync-experimental`)
+    find "$DEST" -type f -name "*.md" -exec perl -i -pe "s|(?<![\\w./])/\Q${s}\E(?![-\\w])|/${PLUGIN_NAME}:${s}|g" {} \;
   done
 
   # Capture the source commit SHA (used by gen-lockfile.sh)

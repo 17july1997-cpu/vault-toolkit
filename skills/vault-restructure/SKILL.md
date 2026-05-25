@@ -474,4 +474,4 @@ Standalone phase. Generates `projects/<name>/wiki/language.md` for a project via
 - `references/routing-taxonomy.md` — categories, heuristics, folder mapping, 3+ subdirectory threshold. Load before Step 1.
 - `references/intake-protocol.md` — frontmatter injection rules, stub templates, confidence guide, companion-page template, wikilink format. Load before Step 4.
 
-Borrows from vault-sync (read-only, do not modify): `~/.claude/skills/vault-toolkit:vault-sync/references/vault-structure.md` for the 6-file templates.
+Borrows from vault-sync (read-only, do not modify): `~/.claude/skills/vault-sync/references/vault-structure.md` for the 6-file templates.
