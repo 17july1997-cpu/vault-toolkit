@@ -1,0 +1,25 @@
+{
+  "plugin": "vault-toolkit",
+  "plugin_version": "1.0.0",
+  "generated_at": "2026-05-25T15:09:32Z",
+  "skills": [
+    {
+      "skill": "vault-restructure",
+      "repository": "https://github.com/17july1997-cpu/vault-restructure.git",
+      "commit": "39f6047e63990082875f2c90f463f29dbb5cd883",
+      "manifest_schema_version": "1.1"
+    },
+    {
+      "skill": "vault-sync",
+      "repository": "https://github.com/17july1997-cpu/vault-sync.git",
+      "commit": "e3989a931cdbc5b8181464e5be76c364fc6214c7",
+      "manifest_schema_version": "1.1"
+    },
+    {
+      "skill": "vault-lint",
+      "repository": "https://github.com/17july1997-cpu/vault-lint.git",
+      "commit": "42e9f3420236bda48fe1a52c3c18ebdd926f389b",
+      "manifest_schema_version": "unspecified"
+    }
+  ]
+}
