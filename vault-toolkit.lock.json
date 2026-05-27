@@ -1,7 +1,7 @@
 {
   "plugin": "vault-toolkit",
-  "plugin_version": "1.0.2",
-  "generated_at": "2026-05-25T20:09:12Z",
+  "plugin_version": "1.0.3",
+  "generated_at": "2026-05-27T16:30:00Z",
   "skills": [
     {
       "skill": "vault-restructure",
@@ -12,7 +12,7 @@
     {
       "skill": "vault-sync",
       "repository": "https://github.com/17july1997-cpu/vault-sync.git",
-      "commit": "42537272c3dc9d93b154aced9e85c109789bac57",
+      "commit": "67c4e0cd35529aaea80ad43b9085a18dbc47cd17",
       "manifest_schema_version": "1.1"
     },
     {
